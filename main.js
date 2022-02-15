@@ -28,32 +28,7 @@ client.once("ready", () => {
 
 // Bot configuration, containing the main channel's ID, file names, admin IDs, etc.
 // "lock" and "map" are expected to change during runtime.
-const config = {
-  prefix: "!lb",
-  channel: "854697271480549406",
-  fsBoards: "leaderboards",
-  fsVideos: "videos",
-  fsNicks: "nicknames",
-  fsPartners: "partners",
-  fsArchives: "archives",
-  admin: {
-    "380730068110147584": true, // p2r3
-    "267331989072248833": true, // lucasskywalker
-    "540707660555878420": true, // Fridge
-    "378178434725052416": true, // dustyhobo
-    "933251694006001744": true  // ansisg
-  },
-  lock: false,
-  map: {
-    file: "",
-    name: ""
-  }
-};
-
-const tokens = {
-  discord: "",
-  youtube: ""
-}
+const config = require("./config.json");
 
 // Defines and loads cache on startup to optimize disk usage and clean up code.
 // The "database" is literally a bunch of text files in folders, human readable.
@@ -530,7 +505,7 @@ async function verifyVideo(message, runData) {
     const response = await superagent
       .get("https://www.googleapis.com/youtube/v3/videos")
       .query({ id: videoid })
-      .query({ key: tokens.youtube })
+      .query({ key: config.tokens.youtube })
       .query({ part: "contentDetails" });
     const duration = response.body.items[0].contentDetails.duration;
 
@@ -1599,4 +1574,4 @@ If you run into any issues, don't be afraid to ask help from a moderator. Robots
 
 });
 
-client.login(tokens.discord).then(() => console.log("Logged in!"));
+client.login(config.tokens.discord).then(() => console.log("Logged in!"));

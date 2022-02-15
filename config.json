@@ -1,0 +1,25 @@
+{
+    "prefix": "!lb",
+    "channel": "773992993634910230",
+    "fsBoards": "leaderboards",
+    "fsVideos": "videos",
+    "fsNicks": "nicknames",
+    "fsPartners": "partners",
+    "fsArchives": "archives",
+    "admin": {
+        "380730068110147584": true,
+        "267331989072248833": true,
+        "540707660555878420": true,
+        "378178434725052416": true,
+        "933251694006001744": true
+    },
+    "lock": false,
+    "map": {
+        "file": "",
+        "name": ""
+    },
+    "tokens": {
+        "discord": "",
+        "youtube": ""
+    }
+}
